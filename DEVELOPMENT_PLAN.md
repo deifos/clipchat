@@ -15,27 +15,33 @@
   - [x] Time markers
   - [x] Playhead indicator
   - [x] Zoom controls
+- [x] Add aspect ratio selector
+  - [x] Multiple preset ratios (16:9, 9:16, 1:1, etc.)
+  - [x] Responsive preview sizing
+  - [x] Visual preview area with proper ratio display
 
 ### 3. Chat Interface
-- [ ] Create chat window component
-- [ ] Implement message list with:
-  - [ ] AI messages styling
-  - [ ] User messages styling
+- [x] Create chat window component
+- [x] Implement message list with:
+  - [x] AI messages styling
+  - [x] User messages styling
   - [ ] Timestamps
-- [ ] Add message input with:
-  - [ ] Text input field
-  - [ ] Send button
-  - [ ] Loading states
+- [x] Add message input with:
+  - [x] Text input field
+  - [x] Send button
+  - [x] Loading states
+  - [x] Enter key support
+  - [x] Auto-scrolling
 
 ### 4. AI Integration
-- [ ] Set up AI SDK connection
-- [ ] Implement message handling system
+- [x] Set up AI SDK connection
+- [x] Implement message handling system
 - [ ] Add typing indicators
 - [ ] Create context management for video-chat correlation
 
 ### 5. State Management
-- [ ] Set up video state management
-- [ ] Implement chat history state
+- [x] Set up video state management
+- [x] Implement chat history state
 - [ ] Create timeline state management
 - [ ] Handle synchronization between video and chat
 
@@ -56,9 +62,9 @@
 - [ ] Ensure responsive behavior on different screen sizes
 
 ## Next Steps
-1. Start with the main layout implementation
-2. Set up the basic video preview
-3. Implement the chat interface
-4. Connect the components with basic state management
-5. Integrate AI functionality
+1. ~~Start with the main layout implementation~~ ✓
+2. ~~Set up the basic video preview~~ ✓
+3. ~~Implement the chat interface~~ ✓
+4. ~~Connect the components with basic state management~~ ✓
+5. Integrate AI functionality with video context
 6. Add polish and refinements

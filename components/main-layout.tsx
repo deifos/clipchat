@@ -2,6 +2,7 @@
 
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
 import { VideoPreview } from "./video-preview";
+import { ChatWindow } from "./chat/chat-window";
 
 export function MainLayout({
   children,
@@ -23,11 +24,10 @@ export function MainLayout({
       </ResizablePanel>
       <ResizableHandle />
       <ResizablePanel defaultSize={35} minSize={25}>
-        <div className="h-full p-6">
+        <div className="h-screen p-4">
           {/* Chat Section */}
-          <div className="h-full flex flex-col gap-4 bg-muted rounded-lg p-4">
-            {/* Chat Component will go here */}
-            {children}
+          <div className="h-full">
+            <ChatWindow />
           </div>
         </div>
       </ResizablePanel>
