@@ -3,18 +3,18 @@
 ## UI Implementation Checklist
 
 ### 1. Layout Structure
-- [ ] Create main layout component with split view
-- [ ] Implement responsive design using Tailwind CSS
-- [ ] Set up basic routing structure using Next.js App Router
+- [x] Create main layout component with split view
+- [x] Implement responsive design using Tailwind CSS
+- [x] Set up basic routing structure using Next.js App Router
 
 ### 2. Video Preview Section
-- [ ] Implement video preview component using Remotion
-- [ ] Add video player controls (play, pause, seek)
-- [ ] Create timeline component with:
-  - [ ] Scrollable timeline view
-  - [ ] Time markers
-  - [ ] Playhead indicator
-  - [ ] Zoom controls
+- [x] Implement video preview component using Remotion
+- [x] Add video player controls (play, pause, seek)
+- [x] Create timeline component with:
+  - [x] Scrollable timeline view
+  - [x] Time markers
+  - [x] Playhead indicator
+  - [x] Zoom controls
 
 ### 3. Chat Interface
 - [ ] Create chat window component

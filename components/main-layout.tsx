@@ -14,15 +14,10 @@ export function MainLayout({
       className="min-h-screen"
     >
       <ResizablePanel defaultSize={65} minSize={40}>
-        <div className="h-full p-6">
+        <div className="h-screen p-6">
           {/* Video Preview Section */}
-          <div className="h-full flex flex-col gap-4">
-            <div className="flex-grow bg-muted rounded-lg overflow-hidden">
-              <VideoPreview />
-            </div>
-            <div className="h-32 bg-muted rounded-lg">
-              {/* Timeline Component will go here */}
-            </div>
+          <div className="h-full bg-muted rounded-lg overflow-hidden">
+            <VideoPreview />
           </div>
         </div>
       </ResizablePanel>
