@@ -27,13 +27,14 @@ export function MessageInput({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex gap-2 pt-2 border-t">
+    <form onSubmit={handleSubmit} className="flex gap-2 pt-2 border-t mt-auto">
       <Textarea
         value={input}
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
         placeholder="Type a message... (Press Enter to send, Shift+Enter for new line)"
-        className="min-h-[56px] resize-none bg-background border-2"
+        className="min-h-[56px] resize-none bg-background border-2 flex-1"
+        autoComplete="off"
       />
       <Button type="submit" size="icon" disabled={isLoading || !input.trim()}>
         <SendHorizontal className="h-5 w-5" />

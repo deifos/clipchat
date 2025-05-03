@@ -3,7 +3,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
-import { Minus, Plus, Play, Pause, RotateCcw } from "lucide-react";
+import { Minus, Plus, Play, Pause, RotateCcw, Type } from "lucide-react";
+import { useTextOverlay } from "@/context/text-overlay-context";
+import { TextOverlayTrack } from "./text-overlay-track";
 
 interface TimelineProps {
   durationInFrames: number;
@@ -26,6 +28,8 @@ export function Timeline({
 }: TimelineProps) {
   const [zoom, setZoom] = useState(1);
   const timelineRef = useRef<HTMLDivElement>(null);
+  const { textOverlays } = useTextOverlay();
+  const [selectedOverlayId, setSelectedOverlayId] = useState<string | null>(null);
 
   const formatTime = (frame: number) => {
     const seconds = Math.floor(frame / fps);
@@ -64,8 +68,8 @@ export function Timeline({
   };
 
   return (
-    <div className="w-full space-y-2 bg-muted/50 rounded-lg p-4">
-      <div className="flex items-center justify-between mb-2">
+    <div className="w-full bg-muted/50 rounded-lg p-3">
+      <div className="flex items-center justify-between mb-1">
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
             <Button
@@ -111,7 +115,7 @@ export function Timeline({
         </div>
       </div>
 
-      <div 
+      <div
         ref={timelineRef}
         className="relative h-16 border rounded-md overflow-hidden"
       >
@@ -123,6 +127,27 @@ export function Timeline({
           }}
         >
           {renderTimeMarkers()}
+          
+          {/* Text overlay tracks */}
+          {textOverlays.length > 0 && (
+            <div className="absolute left-0 right-0 h-8 top-6 bg-muted/30">
+              <div className="absolute -left-8 top-1 flex items-center">
+                <Type className="h-4 w-4 text-blue-500" />
+              </div>
+              
+              {textOverlays.map((overlay, index) => (
+                <TextOverlayTrack
+                  key={`timeline_${overlay.id}_${index}_${overlay.text?.substring(0, 8)}`}
+                  overlay={overlay}
+                  durationInFrames={durationInFrames}
+                  fps={fps}
+                  onSelect={setSelectedOverlayId}
+                  isSelected={selectedOverlayId === overlay.id}
+                />
+              ))}
+            </div>
+          )}
+          
           <Slider
             value={[currentFrame]}
             min={0}

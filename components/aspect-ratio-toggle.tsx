@@ -45,7 +45,7 @@ export function AspectRatioToggle({
           <ChevronDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
+      <PopoverContent className="w-[200px] p-0" sideOffset={8} align="end" alignOffset={-5}>
         <Command>
           <CommandInput placeholder="Search aspect ratio..." />
           <CommandEmpty>No aspect ratio found.</CommandEmpty>

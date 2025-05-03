@@ -13,25 +13,30 @@ interface MessageListProps {
 export function MessageList({ messages }: MessageListProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
+  // Debug logging
+  useEffect(() => {
+    console.log('MessageList received messages:', messages);
+  }, [messages]);
+
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [messages]);
   return (
-    <ScrollArea className="h-full px-2">
-      <div className="pb-2 pt-2">
-      <div className="flex flex-col gap-4">
+    <ScrollArea className="h-full flex-1">
+      <div className="p-2 flex flex-col gap-4">
         {messages.map(message => (
           <div
             key={message.id}
             className={cn(
-              'flex gap-3 text-sm px-2',
+              'flex gap-3 text-sm',
               message.role === 'user' ? 'justify-end' : 'justify-start'
             )}
           >
             {message.role !== 'user' && (
-              <Avatar className="h-8 w-8 ring-2 ring-border bg-background">
+              <Avatar className="h-8 w-8 flex-shrink-0 ring-2 ring-border bg-background">
+                <AvatarImage src="/ai-avatar.png" alt="AI Editor" />
                 <AvatarFallback>AI</AvatarFallback>
               </Avatar>
             )}
@@ -48,14 +53,14 @@ export function MessageList({ messages }: MessageListProps) {
               </div>
             </div>
             {message.role === 'user' && (
-              <Avatar className="h-8 w-8 ring-2 ring-border bg-background">
-                <AvatarFallback>U</AvatarFallback>
+              <Avatar className="h-8 w-8 flex-shrink-0 ring-2 ring-border bg-background">
+                <AvatarImage src="/user-avatar.png" alt="User" />
+                <AvatarFallback>You</AvatarFallback>
               </Avatar>
             )}
           </div>
         ))}
         <div ref={scrollRef} />
-      </div>
       </div>
     </ScrollArea>
   );
