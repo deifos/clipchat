@@ -19,14 +19,14 @@ export function MessageList({ messages }: MessageListProps) {
     }
   }, [messages]);
   return (
-    <ScrollArea className="h-full pr-4">
-      <div className="pb-2">
+    <ScrollArea className="h-full px-2">
+      <div className="pb-2 pt-2">
       <div className="flex flex-col gap-4">
         {messages.map(message => (
           <div
             key={message.id}
             className={cn(
-              'flex gap-3 text-sm',
+              'flex gap-3 text-sm px-2',
               message.role === 'user' ? 'justify-end' : 'justify-start'
             )}
           >
