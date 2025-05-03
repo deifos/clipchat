@@ -1,6 +1,7 @@
 'use client';
 
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
+import { VideoPreview } from "./video-preview";
 
 export function MainLayout({
   children,
@@ -16,8 +17,8 @@ export function MainLayout({
         <div className="h-full p-6">
           {/* Video Preview Section */}
           <div className="h-full flex flex-col gap-4">
-            <div className="flex-grow bg-muted rounded-lg">
-              {/* Video Preview Component will go here */}
+            <div className="flex-grow bg-muted rounded-lg overflow-hidden">
+              <VideoPreview />
             </div>
             <div className="h-32 bg-muted rounded-lg">
               {/* Timeline Component will go here */}
@@ -31,6 +32,7 @@ export function MainLayout({
           {/* Chat Section */}
           <div className="h-full flex flex-col gap-4 bg-muted rounded-lg p-4">
             {/* Chat Component will go here */}
+            {children}
           </div>
         </div>
       </ResizablePanel>
